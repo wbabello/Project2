@@ -20,7 +20,12 @@ function MovieList() {
         {movieList.map((movieItem) => (
           <li key={`Movie ${movieList.name}`}>
             {movieItem.name}, {`Released On ${movieItem.releasedOn}`},
-            {movieItem.watched}
+            <img
+              src={movieItem.bannerUrl}
+              className="Movie-logo"
+              alt="movie"
+            ></img>
+            ,{movieItem.watched}
           </li>
         ))}
       </ul>
