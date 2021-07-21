@@ -25,7 +25,7 @@ function MovieList() {
               className="Movie-logo"
               alt="movie"
             ></img>
-            ,{movieItem.watched}
+            {`Movie Watched: ${movieItem.watched.boolValue ? "true" : "false"}`}
           </li>
         ))}
       </ul>
