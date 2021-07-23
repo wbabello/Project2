@@ -3,9 +3,10 @@ import "./App.css";
 import MovieList from "./MoviesList";
 import AddToFavourites from "./AddToFavourites";
 import React, { useState, useEffect } from "react";
+import FavouritesList from "./FavouritesList";
 
 function App() {
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
   const [favourites, setFavourites] = useState([]);
 
   const addFavouriteMovie = (movie) => {
@@ -16,33 +17,9 @@ function App() {
   return (
     <div className="Container ">
       <h1> Top Movies </h1>
-      <MovieList></MovieList>
       <div className="row">
-        <MovieList
-          movies={movies}
-          handleFavouritesClick={addFavouriteMovie}
-          favouriteComponent={AddToFavourites}
-        />
-      </div>
-      <div className="container-fluid movie-app">
-        <div className="row d-flex align-items-center mt-4 mb-4"></div>
-        <div className="row">
-          <MovieList
-            movies={movies}
-            handleAddFavouritesClick={addFavouriteMovie}
-            favouriteComponent={AddToFavourites}
-          />
-        </div>
-        {/* <div className="row d-flex align-items-center mt-4 mb-4">
-          <MovieListHeading heading="Favourites" />
-        </div> */}
-        <div className="row">
-          <MovieList
-            movies={favourites}
-            // handleFavouritesClick={removeFavouriteMovie}
-            // favouriteComponent={RemoveFavourites}
-          />
-        </div>
+        <MovieList handleFavouritesClick={addFavouriteMovie} />
+        <FavouritesList displayFavouriteList={favourites}></FavouritesList>
       </div>
       );
     </div>

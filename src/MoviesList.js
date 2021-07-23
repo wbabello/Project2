@@ -2,11 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 
-function MovieList() {
-  const MovieList = (props) => {
-    const FavouriteComponent = props.favouriteComponent;
-  };
-
+function MovieList(props) {
   const [movieList, setMovieList] = useState([]);
   const [movies, setMovies] = useState([]);
 
@@ -30,10 +26,14 @@ function MovieList() {
               className="Movie-logo"
               alt="movie"
             ></img>
-            <div className="Favourite-button">Add to Favourites</div>
 
-            <div className="overlay d-flex align-items-center justify-content-center">
-              {/* <FavouriteComponent /> */}
+            {/* <div className="overlay d-flex align-items-center justify-content-center"></div> */}
+
+            <div
+              className="Favourite-button"
+              onClick={() => props.handleFavouritesClick(movieItem)}
+            >
+              Add to Favourites
             </div>
 
             <div className="movieList-details" key={`Movie ${movieList.name}`}>
