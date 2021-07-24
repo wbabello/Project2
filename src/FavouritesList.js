@@ -5,6 +5,13 @@ const FavouritesList = (props) => {
   return (
     <>
       <h2> Favourite List </h2>
+
+      <div
+        className="Favourite-button"
+        onClick={() => props.handleRemoveAllFavouriteMovie()}
+      >
+        Remove All Favourites
+      </div>
       <ul>
         {props.displayFavouriteList.map((movieItem) => (
           <div className="movieList-Container" key={`Movie ${movieItem.name}`}>
@@ -27,11 +34,12 @@ const FavouritesList = (props) => {
               <br />
               {/* {`Movie Watched: ${movieItem.watched.boolValue ? "Yes" : "No"}`} */}
               <button
-                className="btn btn-default"
+                className="btn btn-primary"
                 type="submit"
-              >{`Movie Watched: ${
-                movieItem.watched.boolValue ? "Yes" : "No"
-              }`}</button>
+                onClick={() =>
+                  props.handleMarkFavouriteMovieAsWatched(movieItem)
+                }
+              >{`Movie Watched: ${movieItem.isWatched ? "Yes" : "No"}`}</button>
             </div>
           </div>
         ))}
