@@ -1,16 +1,7 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: #ffffff;
+  color: #141414;
+  margin-left: 20px;
 }
 
 .App-header {
@@ -24,24 +15,22 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .movieList-Container {
   position: relative;
-  transition: transform 0.2s;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  max-width: 30%;
+  /* gap: 30px; */
+  /* transition: transform 0.2s; */
 }
 
+.Favourite-button {
+  width: 100%;
+}
+.movieList-details {
+  margin-top: 20px;
+}
 /* .movieList-Container:hover {
   cursor: pointer;
   transform: scale(1.1);
