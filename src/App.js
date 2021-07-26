@@ -9,65 +9,59 @@ import RemoveFavourites from "./RemoveFavourites";
 import { Button } from "bootstrap";
 
 function App() {
-  // const [movies, setMovies] = useState([]);
   const [favourites, setFavourites] = useState([]);
-
   const addFavouriteMovie = (movie) => {
     const newFavouriteList = [...favourites, movie];
     setFavourites(newFavouriteList);
   };
 
   const removeFavouriteMovie = (movie) => {
-    // movie.watched = true;
     const newFavouriteList = favourites.filter(
       (favourite) => favourite.id !== movie.id
     );
-
     setFavourites(newFavouriteList);
   };
 
   const markFavouriteMovieAsWatched = (movie) => {
     const newFavouriteList = favourites.map((favourite) => {
       if (favourite.id === movie.id) {
-        // find the watched movie
         favourite.isWatched = !favourite.isWatched; // toggle it as watched
-
         return favourite; // return the movie back into the array
       }
 
       return favourite;
     });
     setFavourites(newFavouriteList);
-
-    // new list of movie selected in my favourites
-    // when user click on 'Is Movie watched ' Button
-    // The button should change from Node(default) to Yes
   };
 
   const removeAllFavouriteMovie = () => {
-    setFavourites([]); // re-set favourites list to empty
+    setFavourites([]); // re-set my favourites list to empty as all favourites
   };
 
   return (
     <>
-      <div class="headerContainer">
-        <h1 class="display-4">Movie Generator 9000</h1>
-        <p class="lead">powered by Moviemagic 2124©</p>
-        <hr class="my-4"></hr>
-      </div>
-
-      <div className="Container ">
-        <div className="topTitle">
-          <h1> Top Movies </h1>
+      {
+        <div class="headerContainer bg-secondary text-white height: 100%">
+          <h1 class="display-4">Movie Generator 9000</h1>
+          <p class="lead">powered by Moviemagic 2124©</p>
+          <hr class="my-4"></hr>
         </div>
-        <div className="container-fluid movie-app">
+      }
+
+      <div className="container-1 p-3 mb-2 bg-dark text-white border-top">
+        <h1 className="topTitle"> Top 100 Favourite Movies </h1>
+        <div class="col-sm-12 col-md-6">
+          <p class="lead">
+            Insiders were asked to pick their favorite movies of all time,
+            providing us with details of favourte movies watched{" "}
+          </p>
+        </div>
+        <div className="container-2">
           <div className="row">
             <MovieList handleFavouritesClick={addFavouriteMovie} />
-            {/* <FavouritesList displayFavouriteList={favourites}></FavouritesList> */}
           </div>
           {
             <div className="row">
-              {/* <MovieList handleFavouritesClick={addFavouriteMovie} /> */}
               <FavouritesList
                 displayFavouriteList={favourites}
                 handleFavouritesClick={removeFavouriteMovie}
@@ -77,7 +71,6 @@ function App() {
             </div>
           }
         </div>
-        {/* //{" "} */}
       </div>
     </>
   );

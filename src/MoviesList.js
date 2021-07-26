@@ -17,30 +17,31 @@ function MovieList(props) {
 
   return (
     <>
-      <h2>Top Recommendation </h2>
+      <h2> </h2>
       <ul>
         {movieList.map((movieItem) => (
           <div className="movieList-Container" key={`Movie ${movieList.name}`}>
             <div>
               <img
                 src={movieItem.bannerUrl}
-                className="Movie-logo"
-                alt="movie"
+                className="img-thumbnail "
+                alt="Cinque Terre"
               ></img>
 
-              {/* <div className="overlay d-flex align-items-center justify-content-center"></div> */}
-
               <div
-                className="Favourite-button"
+                className="AddToFavourite-button btn btn-outline-dark"
                 onClick={() => props.handleFavouritesClick(movieItem)}
               >
                 Add to Favourites
               </div>
             </div>
-            <div className="movieList-details" key={`Movie ${movieList.name}`}>
-              {movieItem.name} <br /> {`Released On ${movieItem.releasedOn}`}
+            <div
+              className="movieList-details col-sm-12 col-md-6 "
+              key={`Movie ${movieList.name}`}
+            >
+              {movieItem.name} <br /> {`Released On: ${movieItem.releasedOn}`}
               <br />
-              {`Movie Watched: ${movieItem.watched.boolValue ? "Yes" : "No"}`}
+              {/* {`Movie Watched: ${movieItem.watched.boolValue ? "Yes" : "No"}`} //not rendering Movie watched at this time */}
             </div>
           </div>
         ))}
