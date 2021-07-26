@@ -42,7 +42,7 @@ function App() {
     <>
       {
         <div class="headerContainer bg-secondary text-white height: 100%">
-          <h1 class="display-4">Movie Generator 9000</h1>
+          <h1 class="display-4">Watch Later SPA — Movie Generator 9000</h1>
           <p class="lead">powered by Moviemagic 2124©</p>
           <hr class="my-4"></hr>
         </div>
