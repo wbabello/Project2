@@ -10,9 +10,22 @@ import { Button } from "bootstrap";
 
 function App() {
   const [favourites, setFavourites] = useState([]);
+
   const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
+    const selectedMovieIndex = favourites.findIndex(
+      (favourite) => favourite.id === movie.id
+    );
+
+    if (selectedMovieIndex === -1) {
+      const newFavouriteList = [...favourites, movie];
+
+      setFavourites(newFavouriteList);
+    } else {
+      alert("The movies has been added");
+    }
+
+    // check old favourite list to see a matching movie when a new movie is AudioDestinationNode.
+    // if a matching movie exist display a message otherwise add se;lected movie to newFavouriteList)
   };
 
   const removeFavouriteMovie = (movie) => {
